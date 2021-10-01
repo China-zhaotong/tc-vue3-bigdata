@@ -10,9 +10,23 @@
     </div>
     <a-row class="content">
       <a-col :span="6">
-        <div class="card card-1"></div>
-        <div class="card card-2"></div>
-        <div class="card card-1"></div>
+        <div class="card card-1">
+          <div class="card-footer"></div>
+        </div>
+        <div class="card card-2">
+          <a-table
+            class="ant-table-striped"
+            :dataSource="dataSource"
+            :columns="columns"
+            :rowClassName="
+              (record, index) => (index % 2 === 1 ? 'table-striped' : null)
+            "
+          />
+          <div class="card-footer"></div>
+        </div>
+        <div class="card card-2">
+          <div class="card-footer"></div>
+        </div>
       </a-col>
       <a-col :span="12">
         <a-row class="middle">
@@ -47,7 +61,55 @@
           >
         </a-row>
         <a-row>
-          <div class="card card-1"></div>
+          <div class="card card-2">
+            <div
+              style="
+                height: 60px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span
+                style="
+                  font-size: 24px;
+                  font-family: Microsoft YaHei;
+                  font-weight: bold;
+                  color: #ffffff;
+                "
+                >热销基金</span
+              >
+
+              <div
+                style="
+                  width: 500px;
+                  display: flex;
+                  align-items: center;
+                "
+              >
+                <a-button 
+                  v-for="n in 5"
+                  :key="n"
+                  style="
+                    background: rgba(56, 136, 255, 0.2);
+                    color: #fff;
+                    border:none;
+                    margin-left:10px;
+                  "
+                  >股票基金</a-button 
+                >
+              </div>
+            </div>
+            <a-table
+              class="ant-table-striped"
+              :dataSource="dataSource"
+              :columns="columns"
+              :rowClassName="
+                (record, index) => (index % 2 === 1 ? 'table-striped' : null)
+              "
+            />
+          </div>
         </a-row>
         <!-- <div style="display: flex; height: 680px">
           <div class="left">
@@ -61,9 +123,19 @@
           </div> -->
       </a-col>
       <a-col :span="6">
-        <div class="card card-1"></div>
-        <div class="card card-2"></div>
-        <div class="card card-1"></div>
+        <div class="card card-1"><div class="card-footer"></div></div>
+        <div class="card card-2">
+          <a-table
+            class="ant-table-striped"
+            :dataSource="dataSource"
+            :columns="columns"
+            :rowClassName="
+              (record, index) => (index % 2 === 1 ? 'table-striped' : null)
+            "
+          />
+          <div class="card-footer"></div>
+        </div>
+        <div class="card card-2"><div class="card-footer"></div></div>
       </a-col>
     </a-row>
   </div>
@@ -75,13 +147,68 @@ import echarts from "./Echarts.vue";
 @Options({
   components: { echarts },
 })
-export default class FundData extends Vue {}
+export default class FundData extends Vue {
+  public dataSource: any[] = [
+    {
+      key: "1",
+      name: "胡彦斌",
+      age: 32,
+      address: "西湖区湖底公园1号",
+    },
+    {
+      key: "2",
+      name: "胡彦祖",
+      age: 42,
+      address: "西湖区湖底公园1号",
+    },
+    {
+      key: "2",
+      name: "胡彦祖",
+      age: 42,
+      address: "西湖区湖底公园1号",
+    },
+    {
+      key: "2",
+      name: "胡彦祖",
+      age: 42,
+      address: "西湖区湖底公园1号",
+    },
+  ];
+
+  public columns: any[] = [
+    {
+      title: "代码",
+      dataIndex: "name",
+      key: "name",
+      align: "center",
+    },
+    {
+      title: "所属公司",
+      dataIndex: "age",
+      key: "age",
+      align: "center",
+    },
+    {
+      title: "年收益率",
+      dataIndex: "address",
+      key: "address",
+      align: "center",
+    },
+    {
+      title: "规模",
+      dataIndex: "address",
+      key: "address",
+      align: "center",
+    },
+  ];
+}
 </script>
 <style lang="less" scoped>
 .main {
   width: 100%;
   height: 100%;
   background-image: url(../assets/funddata/main_bg.png);
+  padding: 0 10px;
 
   .head {
     width: 100%;
@@ -199,10 +326,61 @@ export default class FundData extends Vue {}
     }
 
     .card {
-      background: rgba(10, 13, 44, 0.5);
+      // background: rgba(10, 13, 44, 0.5);
       border: 1px solid #1c82f0;
-      opacity: 0.3;
+      opacity: 0.8;
       margin-bottom: 10px;
+      position: relative;
+      padding: 15px 15px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-left: 2px solid #308eff;
+        border-top: 2px solid #308eff;
+        content: "1";
+      }
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #308eff;
+        border-top: 2px solid #308eff;
+        content: "1";
+      }
+
+      .card-footer {
+        position: absoulte;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        &::before {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border-left: 2px solid #308eff;
+          border-bottom: 2px solid #308eff;
+          content: "1";
+        }
+        &::after {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 10px;
+          height: 10px;
+          border-right: 2px solid #308eff;
+          border-bottom: 2px solid #308eff;
+          content: "1";
+        }
+      }
     }
     .card-1 {
       height: 270px;
@@ -250,5 +428,40 @@ export default class FundData extends Vue {}
     //   right: 10px;
     // }
   }
+}
+</style>
+<style scoped>
+.ant-table-striped :deep(.table-striped) td {
+  font-size: 12px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 24px;
+  background: rgba(48, 142, 255, 0.1);
+}
+
+.ant-table-striped :deep(.ant-table) {
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 24px;
+}
+
+.ant-table-striped :deep(.ant-table-tbody) tr td {
+  border-bottom: none;
+}
+.ant-table-striped :deep(.ant-table-thead) tr th {
+  background: #308eff;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  background: rgba(48, 142, 255, 0.1);
+  line-height: 24px;
 }
 </style>

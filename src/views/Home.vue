@@ -20,7 +20,7 @@
       <div class="right">
         <img class="img1" src="../assets/home/right1.png" />
         <div class="content">
-          <img class="left" src="../assets/home/right-c1.png" />
+          <img class="c-left" src="../assets/home/right-c1.png" />
           <div class="right">
             <div class="item bg1">
               <div class="item-content">
@@ -151,12 +151,24 @@ export default class Home extends Vue {
   .content {
     display: flex;
     padding: 0 20px;
+
+    @keyframes move1 {
+      from {
+        transform: rotate(0deg) ;
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     .left {
       position: absolute;
       top: 87px;
       width: 924px;
       height: 924px;
       background-image: url(../assets/home/left.png);
+      animation: move1 15s linear infinite;
     }
     .right {
       .img1 {
@@ -167,7 +179,7 @@ export default class Home extends Vue {
         height: 40px;
       }
       .content {
-        .left {
+        .c-left {
           width: 129px;
           height: 500px;
           position: absolute;

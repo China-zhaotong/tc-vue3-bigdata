@@ -48,7 +48,7 @@
             <div class="item bg3">
               <div class="item-content">
                 <img src="../assets/home/item3.png" />
-                <div class="title">
+                <div class="title" @click="itemClick('/chuangye')">
                   <span class="top">创业板大数据展示系统 </span>
                   <span class="bottom">Gem big data display system</span>
                 </div>
@@ -154,7 +154,7 @@ export default class Home extends Vue {
 
     @keyframes move1 {
       from {
-        transform: rotate(0deg) ;
+        transform: rotate(0deg);
       }
 
       to {

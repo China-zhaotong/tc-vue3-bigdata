@@ -10,8 +10,12 @@
     </div>
     <a-row class="content">
       <a-col :span="6">
-        <div class="card card-1">
-          <div class="card-footer"></div>
+        <div style="position: relative">
+          <span class="title-header">创业板总数</span>
+          <span class="title-header" style="margin-top: 50px">创业板总数</span>
+          <div class="card card-1">
+            <!-- <div class="card-footer"></div> -->
+          </div>
         </div>
         <div class="card card-2">
           <a-table
@@ -81,23 +85,17 @@
                 >热销基金</span
               >
 
-              <div
-                style="
-                  width: 500px;
-                  display: flex;
-                  align-items: center;
-                "
-              >
-                <a-button 
+              <div style="width: 500px; display: flex; align-items: center">
+                <a-button
                   v-for="n in 5"
                   :key="n"
                   style="
                     background: rgba(56, 136, 255, 0.2);
                     color: #fff;
-                    border:none;
-                    margin-left:10px;
+                    border: none;
+                    margin-left: 10px;
                   "
-                  >股票基金</a-button 
+                  >股票基金</a-button
                 >
               </div>
             </div>
@@ -148,7 +146,7 @@ import echarts from "./Echarts.vue";
   components: { echarts },
 })
 export default class FundData extends Vue {
-  public dataSource: any[] = [
+  public dataSource = [
     {
       key: "1",
       name: "胡彦斌",
@@ -175,7 +173,7 @@ export default class FundData extends Vue {
     },
   ];
 
-  public columns: any[] = [
+  public columns = [
     {
       title: "代码",
       dataIndex: "name",
@@ -207,8 +205,12 @@ export default class FundData extends Vue {
 .main {
   width: 100%;
   height: 100%;
-  background-image: url(../assets/funddata/main_bg.png);
+  background: url(../assets/funddata/main_bg.png) no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
   padding: 0 10px;
+  position: relative;
+  z-index: 1;
 
   .head {
     width: 100%;
@@ -247,6 +249,13 @@ export default class FundData extends Vue {
     }
   }
   .content {
+    .title-header {
+      font-size: 14px;
+      font-family: Microsoft YaHei;
+      font-weight: 400;
+      color: #3badeb;
+      border-left: 2px solid #308eff;
+    }
     .middle {
       height: 680px;
       .left {
@@ -327,22 +336,10 @@ export default class FundData extends Vue {
 
     .card {
       // background: rgba(10, 13, 44, 0.5);
-      border: 1px solid #1c82f0;
-      opacity: 0.8;
-      margin-bottom: 10px;
-      position: relative;
+      border: 1px solid rgba(28, 130, 240, 0.1);
       padding: 15px 15px;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 10px;
-        height: 10px;
-        border-left: 2px solid #308eff;
-        border-top: 2px solid #308eff;
-        content: "1";
-      }
+      top: 10px;
+      position: absolute;
       &::after {
         position: absolute;
         top: 0;
@@ -359,6 +356,36 @@ export default class FundData extends Vue {
         bottom: 0;
         left: 0;
         width: 100%;
+
+        &::before {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border-left: 2px solid #308eff;
+          border-bottom: 2px solid #308eff;
+          content: "1";
+        }
+        &::after {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 10px;
+          height: 10px;
+          border-right: 2px solid #308eff;
+          border-bottom: 2px solid #308eff;
+          content: "1";
+        }
+      }
+
+      .card-header {
+        position: absoulte;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: red;
+        height: 10px;
 
         &::before {
           position: absolute;

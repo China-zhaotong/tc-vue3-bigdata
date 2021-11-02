@@ -1,5 +1,5 @@
 <template>
-  <v-chart :option="option" autoresize />
+  <v-chart :option="option" autoresize @click="click" @dblclick="dblclick" />
 </template>
 <script>
 import { use } from "echarts/core";
@@ -35,7 +35,15 @@ export default defineComponent({
   setup: (props) => {
     const option = ref(ChuangYeEcharts(props.option_type));
 
-    return { option };
+    const click = (params) => {
+      console.log('click事件触发')
+    }
+
+    const dblclick = (params) =>{
+      console.log('dblclick事件触发')
+    }
+
+    return { option,click,dblclick};
   },
 });
 </script>

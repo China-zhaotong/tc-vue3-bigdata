@@ -15,59 +15,92 @@
     <div class="head-bottom">
       <img src="../assets/home/title-bottom.png" />
     </div>
-    <div class="content">
-      <div class="left"></div>
-      <div class="right">
-        <img class="img1" src="../assets/home/right1.png" />
-        <div class="content">
-          <img class="c-left" src="../assets/home/right-c1.png" />
-          <div class="right">
-            <div class="item bg1">
-              <div class="item-content">
-                <img src="../assets/home/item1.png" />
-                <div class="title" @click="itemClick('/funddata')">
-                  <span class="top">沪深主板大数据展示系统</span>
-                  <span class="bottom"
-                    >Shanghai and Shenzhen main board big data display
-                    system</span
-                  >
+    <a-row class="content" style="">
+      <a-col
+        :span="24"
+        style="
+          postion: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1976px;
+            min-width: 1376px;
+          "
+        >
+          <!-- <img src="../assets/home/right1.png" /> -->
+          <img src="../assets/home/left.png" style="margin-right: -232px" />
+          <div
+            style="
+              width: 50%;
+              height: 550px;
+              min-width: 1019px;
+              max-width: 1920px;
+              margin-top: -100px;
+            "
+          >
+            <img src="../assets/home/right1.png" />
+            <div style="display: flex; height: 500px; margin-top: 20px">
+              <img
+                src="../assets/home/right-c1.png"
+                style="width: 129px; height: 500px"
+              />
+              <div style="margin-left: -85px">
+                <div class="item bg1">
+                  <div class="item-content">
+                    <img src="../assets/home/item1.png" />
+                    <div class="title" @click="itemClick('/funddata')">
+                      <span class="top">沪深主板大数据展示系统</span>
+                      <span class="bottom"
+                        >Shanghai and Shenzhen main board big data display
+                        system</span
+                      >
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="item-divider"></div>
-            <div class="item bg2">
-              <div class="item-content">
-                <img src="../assets/home/item2.png" />
-                <div class="title">
-                  <span class="top">基金大数据展示系统</span>
-                  <span class="bottom">Fund big data display system</span>
+                <div class="item-divider"></div>
+                <div class="item bg2">
+                  <div class="item-content">
+                    <img src="../assets/home/item2.png" />
+                    <div class="title">
+                      <span class="top">基金大数据展示系统</span>
+                      <span class="bottom">Fund big data display system</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="item-divider"></div>
-            <div class="item bg3">
-              <div class="item-content">
-                <img src="../assets/home/item3.png" />
-                <div class="title" @click="itemClick('/chuangye')">
-                  <span class="top">创业板大数据展示系统 </span>
-                  <span class="bottom">Gem big data display system</span>
+                <div class="item-divider"></div>
+                <div class="item bg3">
+                  <div class="item-content">
+                    <img src="../assets/home/item3.png" />
+                    <div class="title" @click="itemClick('/chuangye')">
+                      <span class="top">创业板大数据展示系统 </span>
+                      <span class="bottom">Gem big data display system</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="item-divider"></div>
-            <div class="item bg4">
-              <div class="item-content">
-                <img src="../assets/home/item4.png" />
-                <div class="title">
-                  <span class="top">次新股信息系统</span>
-                  <span class="bottom">Sub-ipo information system</span>
+                <div class="item-divider"></div>
+                <div class="item bg4">
+                  <div class="item-content">
+                    <img src="../assets/home/item4.png" />
+                    <div class="title">
+                      <span class="top">次新股信息系统</span>
+                      <span class="bottom">Sub-ipo information system</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </a-col>
+    </a-row>
     <div class="foot"></div>
   </div>
 </template>
@@ -149,106 +182,69 @@ export default class Home extends Vue {
     }
   }
   .content {
-    display: flex;
-    padding: 0 20px;
+    height: 80%;
 
-    @keyframes move1 {
-      from {
-        transform: rotate(0deg);
-      }
+    .item {
+      width: 100%;
+      height: 110px;
 
-      to {
-        transform: rotate(360deg);
-      }
-    }
+      .item-content {
+        height: 80px;
+        margin: 18px 0 12px 134px;
+        display: flex;
 
-    .left {
-      position: absolute;
-      top: 87px;
-      width: 924px;
-      height: 924px;
-      background-image: url(../assets/home/left.png);
-      animation: move1 15s linear infinite;
-    }
-    .right {
-      .img1 {
-        position: absolute;
-        top: 243px;
-        left: 691px;
-        width: 260px;
-        height: 40px;
-      }
-      .content {
-        .c-left {
-          width: 129px;
-          height: 500px;
-          position: absolute;
-          left: 692px;
-          top: 300px;
-        }
-        .right {
-          width: 990px;
-          height: 500px;
-          left: 736px;
-          top: 300px;
-          position: absolute;
-          z-index: 2;
-          .item {
-            width: 100%;
-            height: 110px;
-
-            .item-content {
-              height: 80px;
-              margin: 18px 0 12px 134px;
-              display: flex;
-
-              .title {
-                padding: 11px 0 0 12px;
-                width: 400px;
-                display: flex;
-                flex-direction: column;
-                cursor: pointer;
-                .top {
-                  width: 388px;
-                  height: 30px;
-                  font-size: 30px;
-                  font-family: PingFang;
-                  font-weight: bold;
-                  color: #ffffff;
-                  line-height: 30px;
-                  text-shadow: 0px 2px 4px rgba(6, 31, 96, 0.66);
-                }
-                .bottom {
-                  width: 368px;
-                  height: 12px;
-                  margin-top: 13px;
-                  font-size: 12px;
-                  font-family: Helvetica Neue;
-                  font-weight: 100;
-                  color: #c8dfe9;
-                  opacity: 0.5;
-                }
-              }
-            }
+        .title {
+          padding: 11px 0 0 12px;
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          .top {
+            width: 388px;
+            height: 30px;
+            font-size: 30px;
+            font-family: PingFang;
+            font-weight: bold;
+            color: #ffffff;
+            line-height: 30px;
+            text-shadow: 0px 2px 4px rgba(6, 31, 96, 0.66);
           }
-          .item-divider {
-            width: 100%;
-            height: 20px;
-          }
-          .bg1 {
-            background-image: url(../assets/home/bg1.png);
-          }
-          .bg2 {
-            background-image: url(../assets/home/bg4.png);
-          }
-          .bg3 {
-            background-image: url(../assets/home/bg2.png);
-          }
-          .bg4 {
-            background-image: url(../assets/home/bg3.png);
+          .bottom {
+            width: 368px;
+            height: 12px;
+            margin-top: 13px;
+            font-size: 12px;
+            font-family: Helvetica Neue;
+            font-weight: 100;
+            color: #c8dfe9;
+            opacity: 0.5;
           }
         }
       }
+    }
+    .item-divider {
+      width: 100%;
+      height: 20px;
+    }
+    .bg1 {
+      background: url(../assets/home/bg1.png) no-repeat;
+      background-size: 100% 100%;
+      background-position: center center;
+    }
+    .bg2 {
+      background: url(../assets/home/bg4.png) no-repeat;
+      background-size: 100% 100%;
+      background-position: center center;
+    }
+    .bg3 {
+      background: url(../assets/home/bg2.png) no-repeat;
+      background-size: 100% 100%;
+      background-position: center center;
+    }
+    .bg4 {
+      background: url(../assets/home/bg3.png) no-repeat;
+      background-size: 100% 100%;
+      background-position: center center;
     }
   }
   .foot {
@@ -256,7 +252,9 @@ export default class Home extends Vue {
     width: 100%;
     height: 94px;
     bottom: 0px;
-    background-image: url(../assets/home/foot.png);
+    background: url(../assets/home/foot.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
   }
 }
 </style>
